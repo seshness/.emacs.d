@@ -1,7 +1,8 @@
 ;; coolstuff.el
 
-;; Auto-complete!
-(add-to-list 'load-path (expand-file-name "./autocomplete/"))
+;; auto-complete, with a nice pulldown thingy
+;; requires the ./autocomplete/ folder to be present
+(add-to-list 'load-path (concat emacs-config-home "/autocomplete/"))
 (require 'auto-complete)
 (global-auto-complete-mode t)
 (define-key ac-complete-mode-map "\C-n" 'ac-next)

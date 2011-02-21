@@ -28,3 +28,6 @@
 
 ;; Use spaces, not tabs, by default
 (setq-default indent-tabs-mode nil)
+
+;; Make scripts executable
+(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)

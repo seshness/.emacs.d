@@ -8,12 +8,7 @@
 (global-set-key [S-return] 'newline-and-indent)
 
 ;; Auto fill mode
-(setq-default fill-column 80)
 (global-set-key (kbd "C-c q") 'auto-fill-mode)
-
-;; Decrease mouse wheel jerkiness
-(if (boundp 'mouse-wheel-scroll-amount)
-    (setq mouse-wheel-scroll-amount '(0.0001)))
 
 ;; next / previous frame
 (global-set-key (kbd "C-x n") 'next-multiframe-window)
@@ -35,3 +30,12 @@
 ;; enlarge window == C-x ^
 ;; adding shrink-window C-x %
 (global-set-key (kbd "C-x %") 'shrink-window)
+
+;; goto line
+(global-set-key (kbd "M-g") 'goto-line)
+
+;; compile: C-c C-e
+(global-set-key "\^c\^e" 'compile)
+
+;; query-replace-regexp
+(global-set-key (kbd "C-M-S-%") 'query-replace-regexp)

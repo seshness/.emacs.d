@@ -11,6 +11,9 @@
 
 ;; Show paren mode ()
 (show-paren-mode t)
+;; Paren mode options
+(setq show-paren-style 'parenthesis)
+(setq show-paren-delay 0)
 
 ;; Program colours! So pretty :)
 (global-font-lock-mode t)
@@ -18,4 +21,7 @@
 ;; Makes the mark temporary
 (setq transient-mark-mode t)
 
-(menu-bar-mode 1)
+;; Disable menu bar in terminal-mode emacs
+(if (not window-system)
+    (menu-bar-mode 0))
+
