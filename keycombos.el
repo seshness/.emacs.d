@@ -3,7 +3,10 @@
 ;; Making doubly certain that the command key is set to Meta on a Mac
 (if (eq system-type 'darwin)
     (progn (setq mac-command-key-is-meta t)
-	   (setq mac-command-modifier 'meta)))
+           (setq mac-command-modifier 'meta)
+           ;;(setq mac-option-key-is-meta nil)
+           ;;(setq mac-option-modifier nil)
+           ))
 
 (global-set-key [S-return] 'newline-and-indent)
 
@@ -39,3 +42,6 @@
 
 ;; query-replace-regexp
 (global-set-key (kbd "C-M-S-%") 'query-replace-regexp)
+
+;; M-x revert-buffer
+(global-set-key (kbd "C-c v") 'revert-buffer)
