@@ -1,8 +1,8 @@
 ;; visuals.el
 
 ;; Highlight current line
-(global-hl-line-mode 1)
-(set-face-background 'hl-line "lemon chiffon")
+;; (global-hl-line-mode 1)
+;; (set-face-background 'hl-line "lemon chiffon")
 
 ;; <quote>
 ;; Turn off the confounded tool bar (PNH 8/20/2003)
