@@ -31,6 +31,3 @@
 ;; Cool stuff: autocomplete, iwb, etc.
 ;; Typically other useful functions or libraries
 (load "coolstuff.el")
-
-
-(require 'color-theme)
