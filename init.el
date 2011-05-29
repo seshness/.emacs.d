@@ -32,3 +32,5 @@
 ;; Typically other useful functions or libraries
 (load "coolstuff.el")
 
+
+(require 'color-theme)
