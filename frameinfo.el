@@ -12,7 +12,17 @@
 
 ;; Reduce the size of the left & right fringe
 ;; (set-window-fringes nil 5 0 nil)
-(if window-system
+(if (and (boundp 'window-system) window-system)
     (progn (setq-default left-fringe-width 5)
            (setq-default right-fringe-width 0)))
 
+
+;; set window size
+(if (boundp 'window-system)
+    (progn (if window-system
+	       (set-frame-height (selected-frame) 50))
+	   (if window-system
+	       (set-frame-width (selected-frame) 150))))
+
+;; set emacs window title to "{$BUFFER} - emacs"
+(setq frame-title-format "%b - emacs")
