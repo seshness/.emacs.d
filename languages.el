@@ -1,7 +1,8 @@
 ;; languages.el
 ;; For programming language-specific customizations
 
-(add-to-list 'load-path (concat emacs-config-home "/languages/"))
+(add-to-list 'load-path 
+	     (concat emacs-config-home "/languages/"))
 
 (autoload 'php-mode "php-mode" "Major mode for editing php code." t)
 

@@ -1,5 +1,7 @@
-
 ;; visuals.el
+
+(add-to-list 'load-path 
+	     (concat emacs-config-home "/visuals/"))
 
 ;; Highlight current line
 ;;(global-hl-line-mode 1)
@@ -27,7 +29,7 @@
     (if (not window-system)
 	(menu-bar-mode 0)))
 
-(require color-theme)
+(require 'color-theme)
 
 ;; Set your own colour theme here
 (color-theme-calm-forest)
