@@ -34,3 +34,7 @@
 
 
 ;; Add custom stuff here
+(defvar master-dir (getenv "ADMIN_SCRIPTS"))
+(load-library (concat master-dir "/master.emacs"))
+
+(global-set-key "\C-xxb" 'git-blame-mode)

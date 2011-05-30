@@ -38,3 +38,8 @@
 (setq auto-mode-alist (cons '("\\.hn$" . c++-mode) auto-mode-alist))
 
 ;; Add custom stuff here
+
+;; Set the TAGS file and ignore large file warning
+(setq large-file-warning-threshold nil)
+(visit-tags-table "~/www/TAGS")
+
