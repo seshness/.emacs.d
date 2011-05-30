@@ -36,6 +36,7 @@
 (setq auto-mode-alist (cons '("README" . text-mode) auto-mode-alist))
 ;; Open .hn files with c++-mode
 (setq auto-mode-alist (cons '("\\.hn$" . c++-mode) auto-mode-alist))
+<<<<<<< HEAD
 
 ;; Add custom stuff here
 
@@ -43,3 +44,5 @@
 (setq large-file-warning-threshold nil)
 (visit-tags-table "~/www/TAGS")
 
+=======
+>>>>>>> parent of 71333ac... Added a line for customizations that don't want to be on master
