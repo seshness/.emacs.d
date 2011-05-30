@@ -1,8 +1,9 @@
+
 ;; visuals.el
 
 ;; Highlight current line
-;; (global-hl-line-mode 1)
-;; (set-face-background 'hl-line "lemon chiffon")
+;;(global-hl-line-mode 1)
+;;(set-face-background 'hl-line "grey30")
 
 ;; <quote>
 ;; Turn off the confounded tool bar (PNH 8/20/2003)
@@ -22,6 +23,11 @@
 (setq transient-mark-mode t)
 
 ;; Disable menu bar in terminal-mode emacs
-(if (not window-system)
-    (menu-bar-mode 0))
+(if (boundp 'window-system)
+    (if (not window-system)
+	(menu-bar-mode 0)))
 
+(require color-theme)
+
+;; Set your own colour theme here
+(color-theme-calm-forest)

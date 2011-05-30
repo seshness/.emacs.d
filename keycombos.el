@@ -45,3 +45,16 @@
 
 ;; M-x revert-buffer
 (global-set-key (kbd "C-c v") 'revert-buffer)
+
+;; Mac-style window switching if not in terminal mode
+(defun switch-to-next-frame ()
+  (interactive)
+  (other-frame 1))
+(defun switch-to-prev-frame ()
+  (interactive)
+  (other-frame -1))
+(if (boundp 'window-system)
+    (progn (if window-system
+	       (global-set-key (kbd "M-`") 'switch-to-next-frame))
+	   (if window-system
+	       (global-set-key (kbd "M-~") 'switch-to-prev-frame))))
