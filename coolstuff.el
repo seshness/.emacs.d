@@ -24,3 +24,5 @@
 ;; tramp mode ssh by default
 (setq tramp-default-method "ssh")
 (auto-compression-mode 1)
+
+;; Add custom stuff here

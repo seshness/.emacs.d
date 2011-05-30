@@ -36,3 +36,5 @@
 (setq auto-mode-alist (cons '("README" . text-mode) auto-mode-alist))
 ;; Open .hn files with c++-mode
 (setq auto-mode-alist (cons '("\\.hn$" . c++-mode) auto-mode-alist))
+
+;; Add custom stuff here

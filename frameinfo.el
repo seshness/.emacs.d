@@ -26,3 +26,5 @@
 
 ;; set emacs window title to "{$BUFFER} - emacs"
 (setq frame-title-format "%b - emacs")
+
+;; Add custom stuff here

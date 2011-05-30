@@ -31,3 +31,6 @@
 ;; Cool stuff: autocomplete, iwb, etc.
 ;; Typically other useful functions or libraries
 (load "coolstuff.el")
+
+
+;; Add custom stuff here
