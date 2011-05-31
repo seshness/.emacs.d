@@ -31,13 +31,10 @@
 ;; Cool stuff: autocomplete, iwb, etc.
 ;; Typically other useful functions or libraries
 (load "coolstuff.el")
-<<<<<<< HEAD
-
 
 ;; Add custom stuff here
 (defvar master-dir (getenv "ADMIN_SCRIPTS"))
 (load-library (concat master-dir "/master.emacs"))
 
 (global-set-key "\C-xxb" 'git-blame-mode)
-=======
->>>>>>> parent of 71333ac... Added a line for customizations that don't want to be on master
+

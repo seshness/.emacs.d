@@ -27,5 +27,3 @@
 
 ;; keyboard scroll one line at a time
 (setq scroll-step 1)
-
-;; Add custom stuff here

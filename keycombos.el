@@ -58,5 +58,3 @@
 	       (global-set-key (kbd "M-`") 'switch-to-next-frame))
 	   (if window-system
 	       (global-set-key (kbd "M-~") 'switch-to-prev-frame))))
-
-;; Add custom stuff here

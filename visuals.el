@@ -33,5 +33,3 @@
 
 ;; Set your own colour theme here
 (color-theme-calm-forest)
-
-;; Add custom stuff here
