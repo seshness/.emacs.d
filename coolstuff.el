@@ -24,3 +24,17 @@
 ;; tramp mode ssh by default
 (setq tramp-default-method "ssh")
 (auto-compression-mode 1)
+
+;; Add custom stuff here
+
+;; Revert all buffers
+(defun revert-all-buffers ()
+  (interactive)
+  (let ((current-buffer (buffer-name)))
+    (loop for buf in (buffer-list)
+          do
+          (unless (null (buffer-file-name buf))
+            (switch-to-buffer (buffer-name buf))
+            (revert-buffer nil t)))
+    (switch-to-buffer current-buffer)
+    (message "All buffers reverted!")))
