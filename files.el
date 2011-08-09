@@ -32,13 +32,5 @@
 ;; Make scripts executable
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
-;; Open README files in text-mode
-(setq auto-mode-alist (cons '("README" . text-mode) auto-mode-alist))
-;; Open .hn files with c++-mode
-(setq auto-mode-alist (cons '("\\.hn$" . c++-mode) auto-mode-alist))
-
-;; Add custom stuff here
-
 ;; Set the TAGS file and ignore large file warning
 (setq large-file-warning-threshold nil)
-(visit-tags-table "~/www/TAGS")

@@ -27,3 +27,37 @@
 
 ;; keyboard scroll one line at a time
 (setq scroll-step 1)
+
+;; Split horizontally by default
+(setq split-width-threshold 0)
+
+;; Rebalance windows after splitting horizontally
+(defadvice split-window-horizontally
+  (after rebalance-windows activate)
+  (balance-windows))
+(ad-activate 'split-window-horizontally)
+
+(defadvice delete-window
+  (after rebalance-windows activate)
+  (balance-windows))
+(ad-activate 'delete-window)
+
+
+;; byte compile emacs files
+(defun recompile-emacs ()
+  (interactive)
+  (byte-recompile-directory "~/.emacs.d/")
+  )
+
+;; translates ANSI colors into text-properties, for eshell
+(autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+;; show trailing whitespace ...
+(set-face-background 'trailing-whitespace "#900000")
+(setq-default show-trailing-whitespace t)
+;; ... and terminate with extreme prejudice
+(defun delete-trailing-whitespace-sometimes () ""
+  (if (not (eq major-mode 'diff-mode))
+      (delete-trailing-whitespace)))
+(add-hook 'write-file-hooks 'delete-trailing-whitespace-sometimes)

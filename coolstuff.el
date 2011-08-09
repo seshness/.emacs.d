@@ -1,5 +1,8 @@
 ;; coolstuff.el
 
+(add-to-list 'load-path (expand-file-name (concat emacs-config-home
+                                                  "plugins/")))
+
 ;; auto-complete, with a nice pulldown thingy
 ;; requires the ./autocomplete/ folder to be present
 (add-to-list 'load-path (concat emacs-config-home "/autocomplete/"))
@@ -25,7 +28,15 @@
 (setq tramp-default-method "ssh")
 (auto-compression-mode 1)
 
-;; Add custom stuff here
+;; Check disk to see if files have been updated
+(global-auto-revert-mode 1)
+
+;; M-x insert-timestamp
+(defun insert-timestamp ()
+  "timestamp insertion function."
+  (interactive)
+  (insert (format-time-string "%Y-%m-%d %H:%M:%S: ")))
+
 
 ;; Revert all buffers
 (defun revert-all-buffers ()
@@ -38,3 +49,25 @@
             (revert-buffer nil t)))
     (switch-to-buffer current-buffer)
     (message "All buffers reverted!")))
+
+;; Autocomplete 'on steroids'
+(require 'pabbrev)
+
+;; git (try `git-blame-mode' and `(global-set-key "\C-xxb" 'git-blame-mode)')
+(require 'git)
+(setq git-blame-log-message-format "format:%an (%ar): %s (%h) ")
+(autoload 'git-blame-mode "git-blame"
+  "Minor mode for incremental blame for Git." t)
+
+(require 'git-blame)
+(require 'git)
+(setq git-blame-log-message-format "format:%an (%ar): %s (%h) ")
+(autoload 'git-blame-mode "git-blame"
+  "Minor mode for incremental blame for Git." t)
+
+;; unique buffer names using path
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'reverse)
+(setq uniquify-separator "|")
+(setq uniquify-after-kill-buffer-p t)
+(setq uniquify-ignore-buffers-re "^\\*")

@@ -1,0 +1,7 @@
+/**
+ * Function description
+ *
+ * @param  type $var   Description
+ * @param  type $var2  Description
+ * @return void        Or a type, with a description here
+ */
