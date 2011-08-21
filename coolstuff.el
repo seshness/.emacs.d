@@ -71,3 +71,8 @@
 (setq uniquify-separator "|")
 (setq uniquify-after-kill-buffer-p t)
 (setq uniquify-ignore-buffers-re "^\\*")
+
+;; nyan-mode
+(add-to-list 'load-path (expand-file-name (concat emacs-config-home
+                                                  "plugins/nyan-mode")))
+(require 'nyan-mode)
