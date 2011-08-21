@@ -4,17 +4,20 @@
 (if (boundp 'global-linum-mode)
     (global-linum-mode 1))
 
-;; Display (L,C) in status bar where L is the current line number and C is the
-;; column number, when used in conjunction with the above instruction
+;; Display (L,C) in status bar where L is the current line number and C
+;; is the column number.
 (line-number-mode 1)
 (column-number-mode 1)
+
+(size-indication-mode 1)
+(display-time-mode 1)
+(display-battery-mode 1)
 
 ;; Reduce the size of the left & right fringe
 ;; (set-window-fringes nil 5 0 nil)
 (if (and (boundp 'window-system) window-system)
     (progn (setq-default left-fringe-width 5)
            (setq-default right-fringe-width 0)))
-
 
 ;; set window size
 (if (boundp 'window-system)

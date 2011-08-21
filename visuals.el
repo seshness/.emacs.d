@@ -1,7 +1,7 @@
 ;; visuals.el
 
 (add-to-list 'load-path
-	     (concat emacs-config-home "/visuals/"))
+             (concat emacs-config-home "/visuals/"))
 
 ;; Highlight current line
 ;;(global-hl-line-mode 1)
@@ -33,31 +33,15 @@
 ;; Set your own colour theme here
 (color-theme-calm-forest)
 
-(set-face-attribute 'default nil :height 80)
-
 ;; Show trailing whitespace and tabs
 (set-face-background 'trailing-whitespace "#900000")
 (setq-default show-trailing-whitespace t)
 (add-hook 'font-lock-mode-hook 'highlight-tabs)
-(defun highlight-tabs () "" (font-lock-add-keywords nil '(("[\t]+" (0 'trailing-whitespace t)))))
-
-(require 'color-theme)
-(custom-set-faces
- '(font-lock-builtin-face ((t (:foreground "cyan"))))
- '(font-lock-keyword-face ((t (:foreground "cyan"))))
- '(font-lock-type-face ((t (:foreground "cyan"))))
- '(font-lock-comment-face ((t (:foreground "green"))))
- '(font-lock-constant-face ((t (:foreground "cyan"))))
- '(font-lock-function-name-face ((t (:foreground "magenta"))))
- '(font-lock-variable-name-face ((t (:foreground "yellow"))))
- '(font-lock-string-face ((t (:foreground "white"))))
- '(font-lock-warning-face ((t (:foreground "red"))))
- '(isearch ((t (:background "blue" :foreground "white"))))
- '(isearch-lazy-highlight-face ((t (:background "yellow" :foreground "black"))))
- '(makefile-space-face ((t (:background "red"))))
- '(show-paren-match-face ((((class color)) (:background "green"))))
- '(show-paren-mismatch-face ((((class color)) (:background "red"))))
-)
+(defun highlight-tabs () ""
+  (font-lock-add-keywords nil '(("[\t]+" (0 'trailing-whitespace t)))))
 
 ;; Have highlighting all the time
 (global-font-lock-mode 1)
+
+;; Default font fix for Cocoa Emacs on OS X
+(set-default-font "-apple-Monaco-medium-normal-normal-*-*-*-*-*-m-0-iso10646-1")
