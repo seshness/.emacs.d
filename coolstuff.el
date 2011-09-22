@@ -76,3 +76,7 @@
 (add-to-list 'load-path (expand-file-name (concat emacs-config-home
                                                   "plugins/nyan-mode")))
 (require 'nyan-mode)
+
+(autoload 'sese-mode "sese" "Subtitle Editor major mode" t)
+(setq auto-mode-alist
+      (cons '("\\.sese\\'" . sese-mode) auto-mode-alist))
