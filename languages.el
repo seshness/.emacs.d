@@ -14,8 +14,8 @@
 ;; Open .hn (horn) files with c++-mode
 (setq auto-mode-alist (cons '("\\.hn$" . c++-mode) auto-mode-alist))
 
-;; Change default spacing from 4 -> 2 spaces in C
-(setq c-basic-offset 2)
+;; Change default spacing in C
+(setq c-basic-offset 4)
 
 ;; Set google's c-style
 (require 'google-c-style)
@@ -182,7 +182,7 @@
 ;;Java Indentation Style
 ;;========================================================
 (defconst fb-java-style
-  '((c-basic-offset . 2)
+  '((c-basic-offset . 4)
     (c-offsets-alist . (
                         (arglist-intro . +)
                         (case-label . +)
