@@ -29,9 +29,13 @@
 (menu-bar-mode (if window-system 1 -1))
 
 (require 'color-theme)
+(require 'color-theme-wombat)
+(require 'color-theme-desert)
 
 ;; Set your own colour theme here
-(color-theme-calm-forest)
+(if (boundp window-system)
+    (color-theme-calm-forest)
+    (color-theme-desert))
 
 ;; Show trailing whitespace and tabs
 (set-face-background 'trailing-whitespace "#900000")
