@@ -55,9 +55,9 @@
   (other-frame -1))
 (if (boundp 'window-system)
     (progn (if window-system
-	       (global-set-key (kbd "M-`") 'switch-to-next-frame))
-	   (if window-system
-	       (global-set-key (kbd "M-~") 'switch-to-prev-frame))))
+               (global-set-key (kbd "M-`") 'switch-to-next-frame))
+           (if window-system
+               (global-set-key (kbd "M-~") 'switch-to-prev-frame))))
 
 ;; Move between boundaries using arrows
 (global-set-key (kbd "C-c <right>") 'windmove-right)

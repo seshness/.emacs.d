@@ -35,7 +35,7 @@
 ;; Set your own colour theme here
 (if (boundp window-system)
     (color-theme-calm-forest)
-    (color-theme-desert))
+    (color-theme-wombat))
 
 ;; Show trailing whitespace and tabs
 (set-face-background 'trailing-whitespace "#900000")
