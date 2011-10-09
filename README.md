@@ -25,3 +25,5 @@ including but not limited to:
    * CS 164 .emacs class master
 
    * The wealth of Emacs users at Facebook
+
+   * https://github.com/overtone/live-coding-emacs

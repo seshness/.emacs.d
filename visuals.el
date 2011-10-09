@@ -48,4 +48,8 @@
 (global-font-lock-mode 1)
 
 ;; Default font fix for Cocoa Emacs on OS X
-(set-default-font "-apple-Monaco-medium-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+(set-frame-font "-apple-Monaco-medium-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+
+;; Rainbow parens
+(require 'rainbow-parens)
+(setq-default frame-background-mode 'light)
