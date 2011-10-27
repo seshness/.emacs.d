@@ -128,12 +128,22 @@
                                   "/languages/c++-doc-template.txt")))
 
 ;;=========================================================
+;;Java Method documentation template
+;;========================================================
+(defun java-doc ()
+    "Inserts a C++ doc function template"
+    (interactive)
+    (insert-file-contents (concat emacs-config-home
+                                  "/languages/c++-doc-template.txt")))
+
+;;=========================================================
 ;;PHP Doc Function template
 ;;========================================================
 (defun php-doc ()
     "Inserts a phpdoc function template"
     (interactive)
-    (insert-file-contents (concat master-dir "/templates/php-doc-template.txt")))
+    (insert-file-contents (concat emacs-config-home
+                                  "/languages/php-doc-template.txt")))
 
 ;;=========================================================
 ;;PHP Indentation Style
@@ -196,6 +206,7 @@
           (lambda ()
             (c-set-style "fb-java-style")
             (highlight-80+-mode t)
+            (local-set-key "C-c j" java-doc)
             ))
 
 ;; Automatically select the appropriate mode based on matching the
