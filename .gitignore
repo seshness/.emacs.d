@@ -4,3 +4,5 @@
 user.el
 *.elc
 ac-comphist.dat
+.reviewboardrc
+gnu.emacs.daemon.plist
