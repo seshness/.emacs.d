@@ -3,10 +3,11 @@
 (add-to-list 'load-path (expand-file-name (concat emacs-config-home
                                                   "plugins/")))
 
-;; auto-complete, with a nice pulldown thingy
-;; requires the ./autocomplete/ folder to be present
-(add-to-list 'load-path (concat emacs-config-home "/autocomplete/"))
-(require 'auto-complete)
+(add-to-list 'load-path "/Users/seshadri/.emacs.d/plugins")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "/Users/seshadri/.emacs.d/plugins/ac-dict")
+(ac-config-default)
+
 (global-auto-complete-mode t)
 (define-key ac-complete-mode-map "\C-n" 'ac-next)
 (define-key ac-complete-mode-map "\C-p" 'ac-previous)
