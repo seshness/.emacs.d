@@ -67,3 +67,6 @@
 
 ;; colours emacs buffer based on commit history
 (global-set-key "\C-xxb" 'git-blame-mode)
+
+;; See files.el - show full path in minibuffer
+(global-set-key "\C-cz" 'show-file-name)
