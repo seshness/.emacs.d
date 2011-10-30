@@ -41,7 +41,7 @@
 (global-set-key "\^c\^e" 'compile)
 
 ;; query-replace-regexp
-(global-set-key (kbd "C-M-S-%") 'query-replace-regexp)
+(global-set-key (kbd "C-M-%") 'query-replace-regexp)
 
 ;; M-x revert-buffer
 (global-set-key (kbd "C-c v") 'revert-buffer)

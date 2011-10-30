@@ -20,10 +20,11 @@
 ;; (when window-system ; not just X
 ;;   (speedbar 1))
 
-;; Put special stuff in their own frames
-(setq special-display-buffer-names
-      (nconc '("*Backtrace*" "*VC-log*" "*compilation*" "*grep*")
-             special-display-buffer-names))
+;; Put special stuff in a dedicated frame
+(if (boundp 'window-system)
+    (setq special-display-buffer-names
+          (nconc '("*Backtrace*" "*VC-log*" "*compilation*" "*grep*")
+                 special-display-buffer-names)))
 
 ;; keyboard scroll one line at a time
 (setq scroll-step 1)
