@@ -221,3 +221,6 @@
                    '("<\\?php\\s " . php-mode))
                   magic-mode-alist))
 )
+
+;; GraphViz Dot Mode
+(require 'graphviz-dot-mode)
