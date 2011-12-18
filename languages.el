@@ -224,3 +224,11 @@
 
 ;; GraphViz Dot Mode
 (require 'graphviz-dot-mode)
+
+;; Significant Whitespace (sws-mode) and jade-mode
+(add-to-list 'load-path
+             (concat emacs-config-home "/languages/jade-mode/"))
+(require 'sws-mode)
+(require 'jade-mode)
+(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
+(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))

@@ -179,7 +179,7 @@ the command."
   :type 'boolean
   :group 'graphviz)
 
-(defcustom graphviz-dot-indent-width default-tab-width
+(defcustom graphviz-dot-indent-width 4
   "*Indentation width in Graphviz Dot mode buffers."
   :type 'integer
   :group 'graphviz)
@@ -529,7 +529,7 @@ Turning on Graphviz Dot mode calls the value of the variable
        (concat graphviz-dot-dot-program
                " -T" graphviz-dot-preview-extension " "
                "\"" buffer-file-name "\""
-               " > \""
+               " -o\""
                (file-name-sans-extension
                 buffer-file-name)
                "." graphviz-dot-preview-extension "\"")))
@@ -645,7 +645,7 @@ See variable `compilation-parse-errors-functions' for interface."
 	   (current-indentation))
   (current-indentation))
 
-(defun graphviz-dot-real-indent-line ()
+ (defun graphviz-dot-real-indent-line ()
   "Indent current line of dot code."
   (beginning-of-line)
   (cond
@@ -684,10 +684,10 @@ See variable `compilation-parse-errors-functions' for interface."
                        (t
                         ;; default case, indent the
                         ;; same as previous NON-BLANK line
-			;; (or the first line, if there are no previous non-blank lines)
-			(while (and (< (point-min) (point))
-				    (looking-at "^\[ \t\]*$"))
-			  (forward-line -1))
+                        ;; (or the first line, if there are no previous non-blank lines)
+                        (while (and (< (point-min) (point))
+                                    (looking-at "^\[ \t\]*$"))
+                          (forward-line -1))
                         (current-indentation)) ))) )))
 
 (defun graphviz-dot-indent-graph ()
