@@ -1,6 +1,6 @@
 ;;; css-mode.el --- Major mode for editing Cascading Style Sheets
 
-;; Copyright (C) 2005  
+;; Copyright (C) 2005
 ;;  Karl Landström.
 
 ;; Author:  Karl Landström <kland at comhem dot se>
@@ -32,7 +32,7 @@
 ;; something like "C:\Program Files\Emacs<version>\site-lisp".  To
 ;; make it run slightly faster you can also compile it from Emacs (M-x
 ;; `emacs-lisp-byte-compile'). Then add
-;; 
+;;
 ;;    (add-to-list 'auto-mode-alist '("\\.css\\'" . css-mode))
 ;;    (autoload 'css-mode "css-mode" nil t)
 
@@ -40,7 +40,7 @@
 
 ;;; Code:
 
-(defcustom css-indent-level 3 "Number of spaces for each indent step.")
+(defcustom css-indent-level 2 "Number of spaces for each indent step.")
 
 
 ;; KEYMAP
@@ -72,8 +72,8 @@
       (re-search-forward regexp bound)
       (setq parse (parse-partial-sexp saved-point (point)))
       (cond ((nth 3 parse)
-             (re-search-forward 
-              (concat "\\([^\\]\\|^\\)" (string (nth 3 parse))) 
+             (re-search-forward
+              (concat "\\([^\\]\\|^\\)" (string (nth 3 parse)))
               (save-excursion (end-of-line) (point)) t))
             ((nth 7 parse)
              (forward-line))
@@ -90,7 +90,7 @@
   "Invokes `re-search-forward' but treats the buffer as if strings and
 comments have been removed."
   (let ((saved-point (point))
-        (search-expr 
+        (search-expr
          (cond ((null count)
                 '(css-re-search-forward-inner regexp bound 1))
                ((< count 0)
@@ -114,9 +114,9 @@ comments have been removed."
       (setq parse (parse-partial-sexp saved-point (point)))
       (cond ((nth 3 parse)
              (re-search-backward
-              (concat "\\([^\\]\\|^\\)" (string (nth 3 parse))) 
+              (concat "\\([^\\]\\|^\\)" (string (nth 3 parse)))
               (save-excursion (beginning-of-line) (point)) t))
-            ((nth 7 parse) 
+            ((nth 7 parse)
              (goto-char (nth 8 parse)))
             ((or (nth 4 parse)
                  (and (eq (char-before) ?/) (eq (char-after) ?*)))
@@ -130,7 +130,7 @@ comments have been removed."
   "Invokes `re-search-backward' but treats the buffer as if strings
 and comments have been removed."
   (let ((saved-point (point))
-        (search-expr 
+        (search-expr
          (cond ((null count)
                 '(css-re-search-backward-inner regexp bound 1))
                ((< count 0)
@@ -168,7 +168,7 @@ and comments have been removed."
    (list ":[ \t]*\\(\\w+[ \t]+\\w+\\)" 1 font-lock-warning-face)
 
    ;; values (unquoted)
-;;    (list ":[ \t]*\\(\"\\|\\w" 
+;;    (list ":[ \t]*\\(\"\\|\\w"
 ;;          "\\(.+?\\)\\(,\\|;\\|}\\|$\\)"
 ;;          '(backward-char)
 ;;          '(end-of-line)
@@ -177,7 +177,7 @@ and comments have been removed."
 
 (defconst css-font-lock-keywords-2 css-font-lock-keywords-1)
 (defconst css-font-lock-keywords-3 css-font-lock-keywords-1)
-(defconst css-font-lock-keywords 
+(defconst css-font-lock-keywords
   '(css-font-lock-keywords-3 css-font-lock-keywords-1 css-font-lock-keywords-2
                              css-font-lock-keywords-3)
   "See `font-lock-keywords'.")
@@ -196,11 +196,11 @@ and comments have been removed."
               ((save-excursion
                  (and (skip-chars-backward " \t\n:,")
                       (looking-at "[:,]")))
-               (save-excursion 
+               (save-excursion
                  (css-re-search-backward "^[ \t]*\\w")
                  (+ (current-indentation) css-indent-level)))
               ((nth 1 p)
-               (save-excursion 
+               (save-excursion
                  (goto-char (nth 1 p))
                  (+ (current-indentation) (if end-brace-p 0 css-indent-level))))
               (t
@@ -247,17 +247,17 @@ Key bindings:
       "Indent new comment lines to column zero and insert only one space
 before a trailing comment."
       (when (eq major-mode 'css-mode)
-        (let ((prs (parse-partial-sexp 
-                    (save-excursion (beginning-of-line) (point)) 
+        (let ((prs (parse-partial-sexp
+                    (save-excursion (beginning-of-line) (point))
                     (point))))
           (when (nth 4 prs)
-            (save-excursion 
+            (save-excursion
               (goto-char (nth 8 prs))
               (when (looking-at "/\\*[ \t]*\\*/")
                 (if (= (current-column) (current-indentation))
                     (indent-line-to 0)
                   (just-one-space))))))))
-    
+
     (ad-activate 'comment-dwim))
 
   (setq major-mode 'css-mode)
