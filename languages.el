@@ -248,8 +248,3 @@
 (add-to-list 'auto-mode-alist '("\\.text" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
-
-;; scala-mode
-(add-to-list 'load-path
-              "~/.emacs.d/plugins/scala-mode")
-(require 'scala-mode-auto)
