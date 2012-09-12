@@ -4,3 +4,6 @@
 [submodule "languages/jade-mode"]
 	path = languages/jade-mode
 	url = git://github.com/brianc/jade-mode.git
+[submodule "languages/piglatin-mode"]
+	path = languages/piglatin-mode
+	url = https://github.com/cloudera/piglatin-mode.git
