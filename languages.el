@@ -26,6 +26,7 @@
 (autoload 'css-mode "css-mode" "Major mode for editing css" t)
 (setq auto-mode-alist
       (cons '("\\.css\\'" . css-mode) auto-mode-alist))
+(setq css-indent-level 2)
 
 ;; Lisp mode for anything that ends in .emacs
 (setq auto-mode-alist (append '(("\\.emacs$" . lisp-mode))
