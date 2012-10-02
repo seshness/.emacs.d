@@ -2,7 +2,7 @@
 ;; For programming language-specific customizations
 
 (add-to-list 'load-path
-         (concat emacs-config-home "/languages/"))
+             (concat emacs-config-home "/languages/"))
 
 (autoload 'php-mode "php-mode" "Major mode for editing php code." t)
 
@@ -240,6 +240,13 @@
 (eval-after-load 'ruby-mode
   '(add-hook 'ruby-mode-hook 'inf-ruby-keys))
 
+;; Rails > Cucumber > feature-mode
+;; (add-to-list 'load-path
+;;              (concat emacs-config-home "/languages/cucumber.el/"))
+;; (setq feature-default-language "en")
+;; (require 'feature-mode)
+;; (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
+
 ;; csv-mode
 (require 'csv-mode)
 
@@ -249,3 +256,5 @@
 (add-to-list 'auto-mode-alist '("\\.text" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
+
+(load-file (concat emacs-config-home "languages/piglatin-mode/piglatin.el"))
