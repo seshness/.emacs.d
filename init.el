@@ -6,10 +6,12 @@
 ;;; interfacing with ELPA, the package archive.
 ;;; Move this code earlier if you want to reference
 ;;; packages in your .emacs.
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
+
+;; Uncomment for Emacs < 24
+;; (when
+;;     (load
+;;      (expand-file-name "~/.emacs.d/elpa/package.el"))
+;;   (package-initialize))
 
 
 ;;; This was installed by package-install.el.
@@ -17,9 +19,14 @@
 ;;; interfacing with ELPA, the package archive.
 ;;; Move this code earlier if you want to reference
 ;;; packages in your .emacs.
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
+
+;; Uncomment for Emacs < 24
+;; (when
+;;     (load
+;;      (expand-file-name "~/.emacs.d/elpa/package.el"))
+;;   (package-initialize))
+
+(when (>= emacs-major-version 24)
   (package-initialize))
 
 (defvar emacs-config-home "~/.emacs.d/")
@@ -29,41 +36,50 @@
 
 ;; user specific settings (eg. name etc)
 (if (file-readable-p "user.el")
-    (load "user.el"))
+    (load-library "user.el"))
 
 ;; Programming language specific customizations
-(load "languages.el")
+(load-library "languages.el")
 
 ;; Load standard key combo changes custom keycombos
 ;; Special stuff not in
 ;; vanilla emacs are under their own files
-(load "keycombos.el")
+(load-library "keycombos.el")
 
 ;; Visuals
-(load "visuals.el")
+(load-library "visuals.el")
 
 ;; Line numbers and general frame stuff
-(load "frameinfo.el")
+(load-library "frameinfo.el")
 
 ;; files and general customizations
-(load "files.el")
+(load-library "files.el")
 
 ;; General
-(load "general.el")
+(load-library "general.el")
 
 ;; Cool stuff: autocomplete, iwb, etc.
 ;; Typically other useful functions or libraries
-(load "coolstuff.el")
+(load-library "coolstuff.el")
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(auto-indent-next-pair-timer-interval (quote ((emacs-lisp-mode 1.5) (default 0.0005))))
  '(blink-cursor-mode t)
  '(column-number-mode t)
  '(display-battery-mode t)
  '(display-time-mode t)
+ '(inhibit-startup-screen t)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(size-indication-mode t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+(put 'scroll-left 'disabled nil)

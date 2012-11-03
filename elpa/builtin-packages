@@ -13,4 +13,3 @@
     (ruby-mode . [(1 0)
 	     nil "Major mode for editing Ruby files" single])
     ))))
-

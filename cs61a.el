@@ -22,7 +22,7 @@
 
 (setq load-path
       (append (mapcar 'expand-file-name
-                      (list  
+                      (list
                    (concat stkhome "/share/emacs/lisp")
                        (concat master "/lib/emacs/lisp")))
 ;        nil               ; MUST BE LAST IN LIST
@@ -31,7 +31,7 @@
 ;; Set Info directory back to the right thing.
 
 (require 'info)
-(setq Info-default-directory-list 
+(setq Info-default-directory-list
       (append (mapcar 'expand-file-name
                  (list (concat stkhome "/lib/emacs/info")))
               Info-default-directory-list))
@@ -167,8 +167,8 @@
 
 ;;**** Key-binding changes
 
-;;(global-set-key "\eg" 'goto-line)   
-;;(global-set-key "\eW" 'copy-region-as-kill) 
+;;(global-set-key "\eg" 'goto-line)
+;;(global-set-key "\eW" 'copy-region-as-kill)
 ;; (global-set-key "\^w" 'backward-kill-word)
 ;; (global-set-key "\eq" 'query-replace)
 ;; (global-set-key "\eQ" 'query-replace-regexp)
@@ -202,7 +202,7 @@
 
 ;; Make .h and .H files default to C++ mode rather than C mode.
 (setq auto-mode-alist
-  (append 
+  (append
    '(("\\.H$" . c++-mode)
      ("\\.h$" . c++-mode))
    auto-mode-alist))
@@ -230,9 +230,9 @@
    (interactive)
    (set-buffer (get-buffer-create "*scheme*"))
    (let ((proc (get-buffer-process "*scheme*")))
-     (if (and proc (not (string-match 
+     (if (and proc (not (string-match
                        "stk$" (car (process-command proc)))))
-  (progn 
+  (progn
            (set-process-buffer proc nil)
            (kill-process proc))))
    (run-scheme "stk-simply"))
@@ -244,9 +244,9 @@
    (interactive)
    (set-buffer (get-buffer-create "*scheme*"))
    (let ((proc (get-buffer-process "*scheme*")))
-     (if (and proc (not (string-match 
+     (if (and proc (not (string-match
                         "envdraw$" (car (process-command proc)))))
-      (progn 
+      (progn
            (set-process-buffer proc nil)
            (kill-process proc))))
    (run-scheme "envdraw"))
@@ -286,10 +286,10 @@
 (define-key scheme-mode-map "\r" 'newline-and-indent)
 
 (defun scheme-load-file-and-go (file-name)
-  "Load Scheme file FILE-NAME into the inferior Scheme process and then 
+  "Load Scheme file FILE-NAME into the inferior Scheme process and then
 go to Scheme buffer."
   (interactive (comint-get-source "Load Scheme file: " scheme-prev-l/c-dir/file
-                                  scheme-source-modes t)) ; T because LOAD 
+                                  scheme-source-modes t)) ; T because LOAD
                                                           ; needs an exact name
   (scheme-load-file file-name)
   (switch-to-scheme t))
@@ -326,7 +326,7 @@ go to Scheme buffer."
 
 (defun force-stkdb-mode ()
   (if (not (scheme-active-p))
-      (save-window-excursion 
+      (save-window-excursion
        (run-scheme scheme-program-name)
         (sleep-for 1)))
   (with-current-buffer scheme-buffer
@@ -359,7 +359,7 @@ go to Scheme buffer."
   "Print buffer contents as with Unix command `lpr -p'.
 `lpr-switches' is a list of extra switches (strings) to pass to lpr."
   (interactive)
-  (print-region-1 (point-min) (point-max) 
+  (print-region-1 (point-min) (point-max)
                 (append lpr-switches (lpr-make-buffer-title)) t))
 
 (defun lpr-make-buffer-title ()
@@ -367,7 +367,7 @@ go to Scheme buffer."
 
 (setq lpr-command "enscript-stdin")
 
-; Set lpr-headers-switches rather than lpr-switches to get 
+; Set lpr-headers-switches rather than lpr-switches to get
 ; around an odd bug in print-region-1.
 (setq lpr-headers-switches "-2rG")
 
@@ -381,9 +381,9 @@ go to Scheme buffer."
 
 (make-variable-buffer-local 'abbreviated-buffer-file-name)
 
-(setq find-file-hooks 
+(setq find-file-hooks
       (append find-file-hooks '(set-abbreviated-file-name)))
-(setq write-file-hooks 
+(setq write-file-hooks
       (append write-file-hooks '(set-abbreviated-file-name)))
 
 (defun set-abbreviated-file-name ()
@@ -425,7 +425,7 @@ go to Scheme buffer."
 ;;           (progn
 ;;          (save-window-excursion
 ;;          (find-file remfile)
-;;           (let ((frame (make-frame '((minibuffer . nil) 
+;;           (let ((frame (make-frame '((minibuffer . nil)
 ;;                                   (height . 50)
 ;;                                         (width . 80)
 ;;                                          (name . "Class Notices. (Click here to put in the background.)")))))
@@ -437,14 +437,14 @@ go to Scheme buffer."
 ;;        (set-window-start frame-window (point))
 ;;       (set-buffer-modified-p nil)
 ;;           (toggle-read-only 1)))))
-          
-      
+
+
 ;; this stuff is to use (ding) Gnus as the newsreader.
 
 ;;(setq gnus-default-nntp-server "agate.berkeley.edu")
 (setq gnus-default-nntp-server "news.csua.berkeley.edu")
 
-(setq gnus-default-subscribed-newsgroups 
+(setq gnus-default-subscribed-newsgroups
       '("ucb.class.cs61a" "news.announce.newusers"
      "news.groups.questions" "gnu.emacs.gnus"))
 
@@ -466,7 +466,7 @@ go to Scheme buffer."
 ;;        'region "-adobe-courier-bold-r-normal--18-180-75-75-m-110-iso8859-1")
 ;; ))
 
-; This function overrides the function of the same name in 
+; This function overrides the function of the same name in
 ; cmuscheme.el. -- brg, Aug 30 1998
 ;
 (defun switch-to-scheme (eob-p)
@@ -515,6 +515,6 @@ go to Scheme buffer."
 (set-face-foreground 'font-lock-string-face "sienna")
 
 ;;;######################################################################
-;; Place any additional customization after the "load" command for 
+;; Place any additional customization after the "load" command for
 ;; this file.
 ;;;######################################################################

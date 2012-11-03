@@ -1,7 +1,7 @@
 ;; visuals.el
 
-(add-to-list 'load-path
-             (concat emacs-config-home "/visuals/"))
+;; (add-to-list 'load-path
+;;              (concat emacs-config-home "/visuals/"))
 
 ;; Highlight current line
 ;;(global-hl-line-mode 1)
@@ -28,16 +28,20 @@
 ;; in console)
 (menu-bar-mode (if window-system 1 -1))
 
-(require 'color-theme)
-(require 'color-theme-wombat)
-(require 'color-theme-desert)
+;; (require 'color-theme)
+;; (require 'color-theme-wombat)
+;; (require 'color-theme-desert)
 
 ;; Set your own colour theme here
-(if (boundp window-system)
-    (color-theme-calm-forest)
-    (color-theme-wombat))
+;; (if (boundp window-system)
+;;     (color-theme-calm-forest)
+;;     (color-theme-wombat))
+;; (require 'color-theme)
+;; (color-theme-calm-forest)
 
-;; Show trailing whitespace and tabs
+(load-theme 'zenburn t)
+
+;; show trailing whitespace and tabs
 (set-face-background 'trailing-whitespace "#900000")
 (setq-default show-trailing-whitespace t)
 (add-hook 'font-lock-mode-hook 'highlight-tabs)

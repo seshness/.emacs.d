@@ -240,6 +240,20 @@
 (eval-after-load 'ruby-mode
   '(add-hook 'ruby-mode-hook 'inf-ruby-keys))
 
+;; (require 'ruby-block)
+;; (ruby-block-mode t)
+;; ;; do overlay
+;; (setq ruby-block-highlight-toggle 'overlay)
+;; ;; display to minibuffer
+;; (setq ruby-block-highlight-toggle 'minibuffer)
+;; ;; display to minibuffer and do overlay
+;; (setq ruby-block-highlight-toggle t)
+
+;; (require 'ruby-end)
+;; (ruby-end-mode t)
+
+;; (require 'feature-mode)
+
 ;; Rails > Cucumber > feature-mode
 ;; (add-to-list 'load-path
 ;;              (concat emacs-config-home "/languages/cucumber.el/"))

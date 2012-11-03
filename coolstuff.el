@@ -73,11 +73,23 @@
 (setq uniquify-after-kill-buffer-p t)
 (setq uniquify-ignore-buffers-re "^\\*")
 
-;; nyan-mode
-(add-to-list 'load-path (expand-file-name (concat emacs-config-home
-                                                  "plugins/nyan-mode")))
-(require 'nyan-mode)
-
 (autoload 'sese-mode "sese" "Subtitle Editor major mode" t)
 (setq auto-mode-alist
       (cons '("\\.sese\\'" . sese-mode) auto-mode-alist))
+
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+  (add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/")))
+
+(package-initialize)
+
+;; Save open files
+(desktop-save-mode 1)
+(defun my-desktop-save ()
+  (interactive)
+  ;; Don't call desktop-save-in-desktop-dir, as it prints a message.
+  (if (eq (desktop-owner) (emacs-pid))
+      (desktop-save desktop-dirname)))
+(add-hook 'auto-save-hook 'my-desktop-save)

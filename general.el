@@ -62,3 +62,11 @@
   (if (not (eq major-mode 'diff-mode))
       (delete-trailing-whitespace)))
 (add-hook 'write-file-hooks 'delete-trailing-whitespace-sometimes)
+
+;; OS X ls doesn't support ls --dired
+(when (eq system-type 'darwin)
+  (require 'ls-lisp)
+  (setq ls-lisp-use-insert-directory-program nil))
+
+;; Remove splash screen
+(setq inhibit-splash-screen t)
