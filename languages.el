@@ -271,4 +271,9 @@
 (add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 
+;; pig-latin-mode
 (load-file (concat emacs-config-home "languages/piglatin-mode/piglatin.el"))
+
+;; scala-mode
+(add-to-list 'load-path "~/.emacs.d/plugins/scala-mode")
+(require 'scala-mode-auto)
