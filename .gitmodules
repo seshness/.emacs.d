@@ -7,3 +7,6 @@
 [submodule "languages/piglatin-mode"]
 	path = languages/piglatin-mode
 	url = https://github.com/cloudera/piglatin-mode.git
+[submodule "languages/cucumber.el"]
+	path = languages/cucumber.el
+	url = https://github.com/michaelklishin/cucumber.el.git
