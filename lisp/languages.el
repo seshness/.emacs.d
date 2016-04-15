@@ -272,7 +272,7 @@
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 
 ;; pig-latin-mode
-(load-file "lisp/languages/piglatin-mode/piglatin.el")
+(load-file (concat emacs-config-home "lisp/languages/piglatin-mode/piglatin.el"))
 
 ;; scala-mode
 (add-to-list 'load-path "~/.emacs.d/lisp/plugins/scala-mode")
