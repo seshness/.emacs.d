@@ -1,12 +1,12 @@
-[submodule "plugins/nyan-mode"]
-	path = plugins/nyan-mode
+[submodule "lisp/plugins/nyan-mode"]
+	path = lisp/plugins/nyan-mode
 	url = git://github.com/TeMPOraL/nyan-mode.git
-[submodule "languages/jade-mode"]
-	path = languages/jade-mode
+[submodule "lisp/languages/jade-mode"]
+	path = lisp/languages/jade-mode
 	url = git://github.com/brianc/jade-mode.git
-[submodule "languages/piglatin-mode"]
-	path = languages/piglatin-mode
+[submodule "lisp/languages/piglatin-mode"]
+	path = lisp/languages/piglatin-mode
 	url = https://github.com/cloudera/piglatin-mode.git
-[submodule "languages/cucumber.el"]
-	path = languages/cucumber.el
+[submodule "lisp/languages/cucumber.el"]
+	path = lisp/languages/cucumber.el
 	url = https://github.com/michaelklishin/cucumber.el.git

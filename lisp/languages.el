@@ -2,7 +2,7 @@
 ;; For programming language-specific customizations
 
 (add-to-list 'load-path
-             (concat emacs-config-home "/languages/"))
+             (concat emacs-config-home "/lisp/languages/"))
 
 (autoload 'php-mode "php-mode" "Major mode for editing php code." t)
 
@@ -126,7 +126,7 @@
     "Inserts a C++ doc function template"
     (interactive)
     (insert-file-contents (concat emacs-config-home
-                                  "/languages/c++-doc-template.txt")))
+                                  "/lisp/languages/c++-doc-template.txt")))
 
 ;;=========================================================
 ;;Java Method documentation template
@@ -135,7 +135,7 @@
     "Inserts a C++ doc function template"
     (interactive)
     (insert-file-contents (concat emacs-config-home
-                                  "/languages/c++-doc-template.txt")))
+                                  "/lisp/languages/c++-doc-template.txt")))
 
 ;;=========================================================
 ;;PHP Doc Function template
@@ -144,7 +144,7 @@
     "Inserts a phpdoc function template"
     (interactive)
     (insert-file-contents (concat emacs-config-home
-                                  "/languages/php-doc-template.txt")))
+                                  "/lisp/languages/php-doc-template.txt")))
 
 ;;=========================================================
 ;;PHP Indentation Style
@@ -228,7 +228,7 @@
 
 ;; Significant Whitespace (sws-mode) and jade-mode
 (add-to-list 'load-path
-             (concat emacs-config-home "languages/jade-mode/"))
+             (concat emacs-config-home "lisp/languages/jade-mode/"))
 (require 'sws-mode)
 (require 'jade-mode)
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
@@ -272,8 +272,8 @@
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 
 ;; pig-latin-mode
-(load-file (concat emacs-config-home "languages/piglatin-mode/piglatin.el"))
+(load-file "lisp/languages/piglatin-mode/piglatin.el")
 
 ;; scala-mode
-(add-to-list 'load-path "~/.emacs.d/plugins/scala-mode")
+(add-to-list 'load-path "~/.emacs.d/lisp/plugins/scala-mode")
 (require 'scala-mode-auto)

@@ -30,13 +30,13 @@
   (package-initialize))
 
 (defvar emacs-config-home "~/.emacs.d/")
-(add-to-list 'load-path (expand-file-name emacs-config-home))
+(add-to-list 'load-path (expand-file-name (concat emacs-config-home "lisp/")))
 (add-to-list 'load-path
-             (expand-file-name (concat emacs-config-home "plugins/")))
+             (expand-file-name (concat emacs-config-home "lisp/plugins/")))
 
 ;; user specific settings (eg. name etc)
-(if (file-readable-p "user.el")
-    (load-library "user.el"))
+(if (file-readable-p "lisp/user.el")
+    (load-library "lisp/user.el"))
 
 ;; Programming language specific customizations
 (load-library "languages.el")
